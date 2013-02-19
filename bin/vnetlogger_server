@@ -1,0 +1,15 @@
+#!/usr/bin/perl -w
+
+use strict;
+use warnings;
+use FindBin;
+use POSIX;
+
+use lib "$FindBin::Bin/../lib"; # Хороший тон: держим исполняемый файл в bin,
+                                # а библиотеки (пакеты) - в lib, и т.д.
+use Proc;
+
+# Создаем экземпляр своего сервера; параметры, кстати, можно задавать в командной строке
+our $server = Proc->new(conf_file => "/etc/vnetlogger_server.conf"); 
+
+$server->run();
