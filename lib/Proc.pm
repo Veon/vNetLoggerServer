@@ -31,7 +31,7 @@ sub process_request {
 		$logger->debug_message("Not UDP package!"); exit;
         }
 
-	(my $name, my $path, my $log_text) = split(/:/, $self->{'server'}->{udp_data}); 
+	(my $name, my $path, my $log_text) = split(/:::/, $self->{'server'}->{udp_data}); 
 
 	if ( ! -d $path ) {
 		mkdir $path;
